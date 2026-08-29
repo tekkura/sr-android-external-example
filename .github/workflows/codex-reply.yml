@@ -1,0 +1,15 @@
+name: Codex Review Reply
+
+on:
+  pull_request_review_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  codex-reply:
+    uses: tekkura/.github/.github/workflows/codex-reply.yml@main
+    secrets:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
